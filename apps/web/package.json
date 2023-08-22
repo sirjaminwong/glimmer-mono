@@ -5,20 +5,35 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postinstall": "prisma generate",
+    "db:push": "prisma db push",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "^4.14.0",
+    "@t3-oss/env-nextjs": "^0.3.1",
+    "@tanstack/react-query": "^4.29.7",
+    "@trpc/client": "^10.26.0",
+    "@trpc/next": "^10.26.0",
+    "@trpc/react-query": "^10.26.0",
+    "@trpc/server": "^10.26.0",
     "next": "^13.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "ui": "workspace:*"
+    "superjson": "1.12.2",
+    "ui": "workspace:*",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@types/node": "^17.0.12",
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
+    "autoprefixer": "^10.4.14",
     "eslint-config-custom": "workspace:*",
+    "postcss": "^8.4.21",
+    "prisma": "^4.14.0",
+    "tailwindcss": "^3.3.0",
     "tsconfig": "workspace:*",
     "typescript": "^4.5.3"
   }
