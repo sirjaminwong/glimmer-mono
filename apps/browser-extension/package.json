@@ -7,8 +7,7 @@
     "build": "plasmo build",
     "dev:next": "next dev --port 1947",
     "package": "plasmo package",
-    "lint:fix": "eslint . --ext '.js,.cjs,.jsx,.ts,.tsx' --fix",
-    "lint": "eslint . '.js,.cjs,.jsx,.ts,.tsx"
+    "lint:fix": "eslint . --ext '.js,.cjs,.jsx,.ts,.tsx' --fix"
   },
   "dependencies": {
     "@emotion/cache": "^11.11.0",
