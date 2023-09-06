@@ -99,10 +99,10 @@ const handler: PlasmoMessaging.MessageHandler = async (req, res) => {
       // stream: true
     })
   })
-    .then((res) => res.json())
-    .catch((err) => console.log(err))
+    .then((response) => response.json() as Promise<unknown>)
+    .catch((err) => { console.log(err); })
 
-  const content = message.choices[0]?.message?.content
+  const content = message.choices[0]?.message?.content as string
   const result = JSON.parse(content)
 
   console.log(message)

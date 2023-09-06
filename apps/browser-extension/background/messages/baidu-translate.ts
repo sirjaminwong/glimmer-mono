@@ -1,5 +1,4 @@
 import md5 from "md5"
-
 import type { PlasmoMessaging } from "@plasmohq/messaging"
 
 const from = "en"
@@ -24,7 +23,7 @@ const handler: PlasmoMessaging.MessageHandler<
   RequestBody,
   ResponseBody
 > = async (req, res) => {
-  const query = req?.body?.text
+  const query = req.body?.text
 
   if (!query) return
   const salt = new Date().getTime()
@@ -40,10 +39,12 @@ const handler: PlasmoMessaging.MessageHandler<
       method: "GET"
     }
   )
-    .then((res) => res.json())
-    .catch((err) => console.log(err))
+    .then((response) => response.json() as Promise<ResponseBody>)
+    .catch((err) => { console.error(err) })
 
-  res.send(result)
+    if (result) {
+      res.send(result)
+    }
 }
 
 export default handler
