@@ -184,6 +184,9 @@ importers:
       '@trpc/server':
         specifier: ^10.26.0
         version: 10.26.0
+      classnames:
+        specifier: ^2.3.2
+        version: 2.3.2
       next:
         specifier: ^13.4.1
         version: 13.4.1(react-dom@18.2.0)(react@18.2.0)
@@ -193,6 +196,9 @@ importers:
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
+      react-use:
+        specifier: ^17.4.0
+        version: 17.4.0(react-dom@18.2.0)(react@18.2.0)
       superjson:
         specifier: 1.12.2
         version: 1.12.2
@@ -4706,6 +4712,12 @@ packages:
     engines: {node: '>=0.12'}
     dev: false
 
+  /error-stack-parser@2.1.4:
+    resolution: {integrity: sha512-Sk5V6wVazPhq5MhpO+AUxJn5x7XSXGl1R93Vn7i+zS15KDVxQijejNCrz8340/2bgLBjR9GtEG8ZVKONDjcqGQ==}
+    dependencies:
+      stackframe: 1.3.4
+    dev: false
+
   /es-abstract@1.22.1:
     resolution: {integrity: sha512-ioRRcXMO6OFyRpyzV3kE1IIBd4WG5/kltnzdxSCqoP8CMGs/Li+M1uF5o7lOkZVFjDs+NLesthnF66Pg/0q0Lw==}
     engines: {node: '>= 0.4'}
@@ -5725,6 +5737,13 @@ packages:
     resolution: {integrity: sha512-JV/yugV2uzW5iMRSiZAyDtQd+nxtUnjeLt0acNdw98kKLrvuRVyB80tsREOE7yvGVgalhZ6RNXCmEHkUKBKxew==}
     dev: true
 
+  /inline-style-prefixer@6.0.4:
+    resolution: {integrity: sha512-FwXmZC2zbeeS7NzGjJ6pAiqRhXR0ugUShSNb6GApMl6da0/XGc4MOJsoWAywia52EEWbXNSy0pzkwz/+Y+swSg==}
+    dependencies:
+      css-in-js-utils: r2.cnpmjs.org/css-in-js-utils@3.1.0
+      fast-loops: r2.cnpmjs.org/fast-loops@1.1.3
+    dev: false
+
   /inquirer@7.3.3:
     resolution: {integrity: sha512-JG3eIAj5V9CwcGvuOmoo6LB9kbAYT8HXffUl6memuszlwDC/qvFAJw49XJ5NROSFNPxp3iQg1GqkFhaY/CR0IA==}
     engines: {node: '>=8.0.0'}
@@ -6429,6 +6448,24 @@ packages:
   /mute-stream@1.0.0:
     resolution: {integrity: sha512-avsJQhyd+680gKXyG/sQc0nXaC6rBkPOfyHYcFb9+hdkqQkR9bdnkJ0AMZhke0oesPqIO+mFFJ+IdBc7mst4IA==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
+    dev: false
+
+  /nano-css@5.3.5(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-vSB9X12bbNu4ALBu7nigJgRViZ6ja3OU7CeuiV1zMIbXOdmkLahgtPmh3GBOlDxbKY0CitqlPdOReGlBLSp+yg==}
+    peerDependencies:
+      react: '*'
+      react-dom: '*'
+    dependencies:
+      css-tree: r2.cnpmjs.org/css-tree@1.1.3
+      csstype: 3.1.2
+      fastest-stable-stringify: r2.cnpmjs.org/fastest-stable-stringify@2.0.2
+      inline-style-prefixer: 6.0.4
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      rtl-css-js: 1.16.1
+      sourcemap-codec: r2.cnpmjs.org/sourcemap-codec@1.4.8
+      stacktrace-js: r2.cnpmjs.org/stacktrace-js@2.0.2
+      stylis: 4.3.0
     dev: false
 
   /nanoid@3.3.6:
@@ -7709,6 +7746,30 @@ packages:
       react: 18.2.0
     dev: false
 
+  /react-use@17.4.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-TgbNTCA33Wl7xzIJegn1HndB4qTS9u03QUwyNycUnXaweZkE4Kq2SB+Yoxx8qbshkZGYBDvUXbXWRUmQDcZZ/Q==}
+    peerDependencies:
+      react: ^16.8.0  || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0  || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@types/js-cookie': r2.cnpmjs.org/@types/js-cookie@2.2.7
+      '@xobotyi/scrollbar-width': r2.cnpmjs.org/@xobotyi/scrollbar-width@1.9.5
+      copy-to-clipboard: 3.3.3
+      fast-deep-equal: r2.cnpmjs.org/fast-deep-equal@3.1.3
+      fast-shallow-equal: r2.cnpmjs.org/fast-shallow-equal@1.0.0
+      js-cookie: r2.cnpmjs.org/js-cookie@2.2.1
+      nano-css: 5.3.5(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-universal-interface: r2.cnpmjs.org/react-universal-interface@0.6.2(react@18.2.0)(tslib@2.5.0)
+      resize-observer-polyfill: r2.cnpmjs.org/resize-observer-polyfill@1.5.1
+      screenfull: r2.cnpmjs.org/screenfull@5.2.0
+      set-harmonic-interval: r2.cnpmjs.org/set-harmonic-interval@1.0.1
+      throttle-debounce: r2.cnpmjs.org/throttle-debounce@3.0.1
+      ts-easing: r2.cnpmjs.org/ts-easing@0.2.0
+      tslib: 2.5.0
+    dev: false
+
   /react@17.0.2:
     resolution: {integrity: sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==}
     engines: {node: '>=0.10.0'}
@@ -7887,6 +7948,12 @@ packages:
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.3
+    dev: false
+
+  /rtl-css-js@1.16.1:
+    resolution: {integrity: sha512-lRQgou1mu19e+Ya0LsTvKrVJ5TYUbqCVPAiImX3UfLTenarvPUl1QFdvu5Z3PYmHT9RCcwIfbjRQBntExyj3Zg==}
+    dependencies:
+      '@babel/runtime': 7.22.10
     dev: false
 
   /run-async@2.4.1:
@@ -8094,6 +8161,23 @@ packages:
   /sprintf-js@1.0.3:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}
     dev: true
+
+  /stack-generator@2.0.10:
+    resolution: {integrity: sha512-mwnua/hkqM6pF4k8SnmZ2zfETsRUpWXREfA/goT8SLCV4iOFa4bzOX2nDipWAZFPTjLvQB82f5yaodMVhK0yJQ==}
+    dependencies:
+      stackframe: 1.3.4
+    dev: false
+
+  /stackframe@1.3.4:
+    resolution: {integrity: sha512-oeVtt7eWQS+Na6F//S4kJ2K2VbRlS9D43mAlMyVpVWovy9o+jfgH8O9agzANzaiLjclA0oYzUXEM4PurhSUChw==}
+    dev: false
+
+  /stacktrace-gps@3.1.2:
+    resolution: {integrity: sha512-GcUgbO4Jsqqg6RxfyTHFiPxdPqF+3LFmQhm7MgCuYQOYuWyqxo5pwRPz5d/u6/WYJdEnWfK4r+jGbyD8TSggXQ==}
+    dependencies:
+      source-map: r2.cnpmjs.org/source-map@0.5.6
+      stackframe: 1.3.4
+    dev: false
 
   /stop-iteration-iterator@1.0.0:
     resolution: {integrity: sha512-iCGQj+0l0HOdZ2AEeBADlsRC+vsnDsZsbdSiH1yNSjcfKM7fdpCMfqAL/dwF5BLiw/XhRft/Wax6zQbhq2BcjQ==}
@@ -8915,6 +8999,12 @@ packages:
     version: 4.0.0
     dev: false
 
+  r2.cnpmjs.org/@xobotyi/scrollbar-width@1.9.5:
+    resolution: {integrity: sha512-N8tkAACJx2ww8vFMneJmaAgmjAG1tnVBZJRLRcx061tmsLRZHSEZSLuGWnwPtunsSLvSqXQ2wfp7Mgqg1I+2dQ==, registry: http://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/@xobotyi/scrollbar-width/-/scrollbar-width-1.9.5.tgz}
+    name: '@xobotyi/scrollbar-width'
+    version: 1.9.5
+    dev: false
+
   r2.cnpmjs.org/acorn-jsx@5.3.2(acorn@8.10.0):
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==, registry: http://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/acorn-jsx/-/acorn-jsx-5.3.2.tgz}
     id: r2.cnpmjs.org/acorn-jsx/5.3.2
@@ -9393,6 +9483,14 @@ packages:
       type-fest: r2.cnpmjs.org/type-fest@1.4.0
     dev: false
 
+  r2.cnpmjs.org/css-in-js-utils@3.1.0:
+    resolution: {integrity: sha512-fJAcud6B3rRu+KHYk+Bwf+WFL2MDCJJ1XG9x137tJQ0xYxor7XziQtuGFbWNdqrvF4Tk26O3H73nfVqXt/fW1A==, registry: http://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/css-in-js-utils/-/css-in-js-utils-3.1.0.tgz}
+    name: css-in-js-utils
+    version: 3.1.0
+    dependencies:
+      hyphenate-style-name: r2.cnpmjs.org/hyphenate-style-name@1.0.4
+    dev: false
+
   r2.cnpmjs.org/css-tree@1.1.3:
     resolution: {integrity: sha512-tRpdppF7TRazZrjJ6v3stzv93qxRcSsFmW6cX0Zm2NVKpxE1WV1HblnghVv9TreireHkqI/VDEsfolRF1p6y7Q==, registry: http://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/css-tree/-/css-tree-1.1.3.tgz}
     name: css-tree
@@ -9781,7 +9879,6 @@ packages:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==, registry: http://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz}
     name: fast-deep-equal
     version: 3.1.3
-    dev: true
 
   r2.cnpmjs.org/fast-json-stable-stringify@2.1.0:
     resolution: {integrity: sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==, registry: http://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/fast-json-stable-stringify/-/fast-json-stable-stringify-2.1.0.tgz}
@@ -9794,6 +9891,24 @@ packages:
     name: fast-levenshtein
     version: 2.0.6
     dev: true
+
+  r2.cnpmjs.org/fast-loops@1.1.3:
+    resolution: {integrity: sha512-8EZzEP0eKkEEVX+drtd9mtuQ+/QrlfW/5MlwcwK5Nds6EkZ/tRzEexkzUY2mIssnAyVLT+TKHuRXmFNNXYUd6g==, registry: http://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/fast-loops/-/fast-loops-1.1.3.tgz}
+    name: fast-loops
+    version: 1.1.3
+    dev: false
+
+  r2.cnpmjs.org/fast-shallow-equal@1.0.0:
+    resolution: {integrity: sha512-HPtaa38cPgWvaCFmRNhlc6NG7pv6NUHqjPgVAkWGoB9mQMwYB27/K0CvOM5Czy+qpT3e8XJ6Q4aPAnzpNpzNaw==, registry: http://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/fast-shallow-equal/-/fast-shallow-equal-1.0.0.tgz}
+    name: fast-shallow-equal
+    version: 1.0.0
+    dev: false
+
+  r2.cnpmjs.org/fastest-stable-stringify@2.0.2:
+    resolution: {integrity: sha512-bijHueCGd0LqqNK9b5oCMHc0MluJAx0cwqASgbWMvkO01lCYgIhacVRLcaDz3QnyYIRNJRDwMb41VuT6pHJ91Q==, registry: http://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/fastest-stable-stringify/-/fastest-stable-stringify-2.0.2.tgz}
+    name: fastest-stable-stringify
+    version: 2.0.2
+    dev: false
 
   r2.cnpmjs.org/file-entry-cache@6.0.1:
     resolution: {integrity: sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==, registry: http://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/file-entry-cache/-/file-entry-cache-6.0.1.tgz}
@@ -10061,6 +10176,12 @@ packages:
     name: human-signals
     version: 2.1.0
     engines: {node: '>=10.17.0'}
+
+  r2.cnpmjs.org/hyphenate-style-name@1.0.4:
+    resolution: {integrity: sha512-ygGZLjmXfPHj+ZWh6LwbC37l43MhfztxetbFCoYTM2VjkIUpeHgSNn7QIyVFj7YQ1Wl9Cbw5sholVJPzWvC2MQ==, registry: http://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/hyphenate-style-name/-/hyphenate-style-name-1.0.4.tgz}
+    name: hyphenate-style-name
+    version: 1.0.4
+    dev: false
 
   r2.cnpmjs.org/iconv-lite@0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==, registry: http://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/iconv-lite/-/iconv-lite-0.4.24.tgz}
@@ -11193,6 +11314,19 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
+  r2.cnpmjs.org/react-universal-interface@0.6.2(react@18.2.0)(tslib@2.5.0):
+    resolution: {integrity: sha512-dg8yXdcQmvgR13RIlZbTRQOoUrDciFVoSBZILwjE2LFISxZZ8loVJKAkuzswl5js8BHda79bIb2b84ehU8IjXw==, registry: http://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/react-universal-interface/-/react-universal-interface-0.6.2.tgz}
+    id: r2.cnpmjs.org/react-universal-interface/0.6.2
+    name: react-universal-interface
+    version: 0.6.2
+    peerDependencies:
+      react: '*'
+      tslib: '*'
+    dependencies:
+      react: 18.2.0
+      tslib: 2.5.0
+    dev: false
+
   r2.cnpmjs.org/read-cache@1.0.0:
     resolution: {integrity: sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==, registry: http://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/read-cache/-/read-cache-1.0.0.tgz}
     name: read-cache
@@ -11344,6 +11478,13 @@ packages:
       upper-case-first: r2.cnpmjs.org/upper-case-first@2.0.2
     dev: false
 
+  r2.cnpmjs.org/set-harmonic-interval@1.0.1:
+    resolution: {integrity: sha512-AhICkFV84tBP1aWqPwLZqFvAwqEoVA9kxNMniGEUvzOlm4vLmOFLiTT3UZ6bziJTy4bOVpzWGTfSCbmaayGx8g==, registry: http://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/set-harmonic-interval/-/set-harmonic-interval-1.0.1.tgz}
+    name: set-harmonic-interval
+    version: 1.0.1
+    engines: {node: '>=6.9'}
+    dev: false
+
   r2.cnpmjs.org/shebang-command@2.0.0:
     resolution: {integrity: sha512-kHxr2zZpYtdmrN1qDjrrX/Z1rR1kG8Dx+gkpK1G4eXmvXswmcE1hTWBWYUzlraYw1/yZp6YuDY77YtvbN0dmDA==, registry: http://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/shebang-command/-/shebang-command-2.0.0.tgz}
     name: shebang-command
@@ -11419,6 +11560,13 @@ packages:
       source-map: r2.cnpmjs.org/source-map@0.6.1
     dev: false
 
+  r2.cnpmjs.org/source-map@0.5.6:
+    resolution: {integrity: sha512-MjZkVp0NHr5+TPihLcadqnlVoGIoWo4IBHptutGh9wI3ttUYvCG26HkSuDi+K6lsZ25syXJXcctwgyVCt//xqA==, registry: http://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/source-map/-/source-map-0.5.6.tgz}
+    name: source-map
+    version: 0.5.6
+    engines: {node: '>=0.10.0'}
+    dev: false
+
   r2.cnpmjs.org/source-map@0.5.7:
     resolution: {integrity: sha512-LbrmJOMUSdEVxIKvdcJzQC+nQhe8FUZQTXQy6+I75skNgn3OoQ0DZA8YnFa7gp8tqtL3KPf1kmo0R5DoApeSGQ==, registry: http://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/source-map/-/source-map-0.5.7.tgz}
     name: source-map
@@ -11440,6 +11588,13 @@ packages:
     engines: {node: '>= 8'}
     dependencies:
       whatwg-url: r2.cnpmjs.org/whatwg-url@7.1.0
+    dev: false
+
+  r2.cnpmjs.org/sourcemap-codec@1.4.8:
+    resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==, registry: http://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/sourcemap-codec/-/sourcemap-codec-1.4.8.tgz}
+    name: sourcemap-codec
+    version: 1.4.8
+    deprecated: Please use @jridgewell/sourcemap-codec instead
     dev: false
 
   r2.cnpmjs.org/spdx-exceptions@2.3.0:
@@ -11469,6 +11624,16 @@ packages:
     name: stable
     version: 0.1.8
     deprecated: 'Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility'
+    dev: false
+
+  r2.cnpmjs.org/stacktrace-js@2.0.2:
+    resolution: {integrity: sha512-Je5vBeY4S1r/RnLydLl0TBTi3F2qdfWmYsGvtfZgEI+SCprPppaIhQf5nGcal4gI4cGpCV/duLcAzT1np6sQqg==, registry: http://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/stacktrace-js/-/stacktrace-js-2.0.2.tgz}
+    name: stacktrace-js
+    version: 2.0.2
+    dependencies:
+      error-stack-parser: 2.1.4
+      stack-generator: 2.0.10
+      stacktrace-gps: 3.1.2
     dev: false
 
   r2.cnpmjs.org/string-convert@0.2.1:
@@ -11644,6 +11809,13 @@ packages:
     dependencies:
       any-promise: r2.cnpmjs.org/any-promise@1.3.0
 
+  r2.cnpmjs.org/throttle-debounce@3.0.1:
+    resolution: {integrity: sha512-dTEWWNu6JmeVXY0ZYoPuH5cRIwc0MeGbJwah9KUNYSJwommQpCzTySTpEe8Gs1J23aeWEuAobe4Ag7EHVt/LOg==, registry: http://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/throttle-debounce/-/throttle-debounce-3.0.1.tgz}
+    name: throttle-debounce
+    version: 3.0.1
+    engines: {node: '>=10'}
+    dev: false
+
   r2.cnpmjs.org/through@2.3.8:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==, registry: http://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/through/-/through-2.3.8.tgz}
     name: through
@@ -11705,6 +11877,12 @@ packages:
     name: tree-kill
     version: 1.2.2
     hasBin: true
+    dev: false
+
+  r2.cnpmjs.org/ts-easing@0.2.0:
+    resolution: {integrity: sha512-Z86EW+fFFh/IFB1fqQ3/+7Zpf9t2ebOAxNI/V6Wo7r5gqiqtxmgTlQ1qbqQcjLKYeSHPTsEmvlJUDg/EuL0uHQ==, registry: http://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/ts-easing/-/ts-easing-0.2.0.tgz}
+    name: ts-easing
+    version: 0.2.0
     dev: false
 
   r2.cnpmjs.org/ts-interface-checker@0.1.13:

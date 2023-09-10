@@ -8,6 +8,7 @@ module.exports = {
     "@typescript-eslint/no-unsafe-call": "off",
     "@typescript-eslint/no-unsafe-return": "off",
     "import/no-extraneous-dependencies": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
     "no-console": 'warn',
   }
 };
