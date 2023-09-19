@@ -2,7 +2,8 @@
 import { memo, useCallback, useEffect, useMemo, useState } from "react";
 import { useKeyPress } from "react-use";
 import classNames from "classnames";
-import { resultOf } from "./utils";
+import { resultOf } from "src/utils/result-of";
+import { useUtterance } from "../../../hooks/use-utterance";
 
 const underscore = "_";
 
@@ -12,8 +13,28 @@ interface WordCheckerProps {
   onSuccess: () => void;
 }
 
-function WordChecker({ word, explain, onSuccess }: WordCheckerProps): JSX.Element {
+const handleSpeech = ({
+  text,
+  lang = "en-US",
+  utterance,
+}: {
+  text: string;
+  lang?: string;
+  utterance: SpeechSynthesisUtterance;
+}) => {
+  utterance.text = text;
+  utterance.lang = lang;
+  console.log('red', window.speechSynthesis);
+  window.speechSynthesis.speak(utterance);
+};
+
+function WordChecker({
+  word,
+  explain,
+  onSuccess,
+}: WordCheckerProps): JSX.Element {
   const [error, setError] = useState<{ index: number; char: string } | null>();
+  const utterance = useUtterance();
 
   const [isCtrlPress] = useKeyPress("Control");
 
@@ -26,13 +47,19 @@ function WordChecker({ word, explain, onSuccess }: WordCheckerProps): JSX.Elemen
   }, [word]);
 
   useEffect(() => {
+    if (word && utterance) {
+      handleSpeech({ text: word, utterance });
+    }
+  }, [utterance, word]);
+
+  useEffect(() => {
     const handleKeydown = (e: KeyboardEvent) => {
-      if (e.key.length > 1 || cursorIndex >= chars.length) {
+      if (e.key.length > 1 || cursorIndex >= word.length) {
         return;
       }
-      if (e.key === chars[cursorIndex]) {
+      if (e.key === word[cursorIndex]) {
         setCursorIndex((i) => i + 1);
-        if (cursorIndex + 1 === chars.length) {
+        if (cursorIndex + 1 === word.length) {
           setDone(true);
         }
       } else {
@@ -43,7 +70,7 @@ function WordChecker({ word, explain, onSuccess }: WordCheckerProps): JSX.Elemen
     return () => {
       window.removeEventListener("keydown", handleKeydown);
     };
-  }, [chars, cursorIndex]);
+  }, [word, cursorIndex]);
 
   useEffect(() => {
     if (!error) {
@@ -81,7 +108,7 @@ function WordChecker({ word, explain, onSuccess }: WordCheckerProps): JSX.Elemen
       }, 1000);
       return () => {
         clearTimeout(timer);
-      }
+      };
     }
   }, [done, onSuccess]);
 
