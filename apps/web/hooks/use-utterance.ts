@@ -6,10 +6,11 @@ export const useUtterance = () => {
     // 在组件加载时设置语音合成引擎的语音
     const loadVoices = () => {
       const voices = window.speechSynthesis.getVoices();
+      const firstVoice = voices[0];
       // 选择你需要的语音，这里选择第一个语音作为示例
-      if (voices.length > 0) {
+      if (firstVoice) {
        const curUtterance = new SpeechSynthesisUtterance();
-      curUtterance.voice = voices[0];
+      curUtterance.voice = firstVoice;
       setUtterance(curUtterance);
       }
     };

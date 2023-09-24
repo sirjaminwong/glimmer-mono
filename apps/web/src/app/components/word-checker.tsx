@@ -3,7 +3,7 @@ import { memo, useCallback, useEffect, useMemo, useState } from "react";
 import { useKeyPress } from "react-use";
 import classNames from "classnames";
 import { resultOf } from "src/utils/result-of";
-import { useUtterance } from "../../../hooks/use-utterance";
+import { speak } from "./speech-service";
 
 const underscore = "_";
 
@@ -13,28 +13,12 @@ interface WordCheckerProps {
   onSuccess: () => void;
 }
 
-const handleSpeech = ({
-  text,
-  lang = "en-US",
-  utterance,
-}: {
-  text: string;
-  lang?: string;
-  utterance: SpeechSynthesisUtterance;
-}) => {
-  utterance.text = text;
-  utterance.lang = lang;
-  console.log('red', window.speechSynthesis);
-  window.speechSynthesis.speak(utterance);
-};
-
 function WordChecker({
   word,
   explain,
   onSuccess,
 }: WordCheckerProps): JSX.Element {
   const [error, setError] = useState<{ index: number; char: string } | null>();
-  const utterance = useUtterance();
 
   const [isCtrlPress] = useKeyPress("Control");
 
@@ -47,10 +31,8 @@ function WordChecker({
   }, [word]);
 
   useEffect(() => {
-    if (word && utterance) {
-      handleSpeech({ text: word, utterance });
-    }
-  }, [utterance, word]);
+    if (word) speak(word);
+  }, [word]);
 
   useEffect(() => {
     const handleKeydown = (e: KeyboardEvent) => {
