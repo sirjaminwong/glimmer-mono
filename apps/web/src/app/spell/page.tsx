@@ -1,6 +1,6 @@
 "use client";
 import { useCallback, useMemo, useState } from "react";
-import WordChecker from "../components/word-checker";
+import WordChecker from "../../components/word-checker";
 import StatisticsBar from "./statistics-bar";
 
 const words: {
