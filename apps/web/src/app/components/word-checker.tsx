@@ -2,8 +2,9 @@
 import { memo, useCallback, useEffect, useMemo, useState } from "react";
 import { useKeyPress } from "react-use";
 import classNames from "classnames";
+import { Icon } from "@iconify/react";
 import { resultOf } from "src/utils/result-of";
-import { speak } from "./speech-service";
+import speechSynthesisSingleton from "src/utils/speck";
 
 const underscore = "_";
 
@@ -31,7 +32,10 @@ function WordChecker({
   }, [word]);
 
   useEffect(() => {
-    if (word) speak(word);
+    speechSynthesisSingleton.speak(word);
+    return () => {
+      speechSynthesisSingleton.cancel();
+    };
   }, [word]);
 
   useEffect(() => {
@@ -96,27 +100,36 @@ function WordChecker({
 
   return (
     <div className="flex flex-col items-center">
-      <div
-        className={`text-6xl text-slate-300 font-mono ${classNames({
-          shake: Boolean(error),
-        })}`}
-      >
-        {chars.map((char, i) => {
-          return (
-            // eslint-disable-next-line react/no-array-index-key -- we don't have a unique id for each char in the word so we use the char + index
-            <span className={`pr-1 ${getCharColor(i)}`} key={char + i}>
-              {resultOf(() => {
-                if (isCtrlPress) {
-                  return char;
-                }
-                if (error?.index === i) {
-                  return error.char;
-                }
-                return i >= cursorIndex ? underscore : char;
-              })}
-            </span>
-          );
-        })}
+      <div className="flex items-center">
+        <div
+          className={`text-6xl text-slate-300 font-mono ${classNames({
+            shake: Boolean(error),
+          })}`}
+        >
+          {chars.map((char, i) => {
+            return (
+              // eslint-disable-next-line react/no-array-index-key -- we don't have a unique id for each char in the word so we use the char + index
+              <span className={`pr-1 ${getCharColor(i)}`} key={char + i}>
+                {resultOf(() => {
+                  if (isCtrlPress) {
+                    return char;
+                  }
+                  if (error?.index === i) {
+                    return error.char;
+                  }
+                  return i >= cursorIndex ? underscore : char;
+                })}
+              </span>
+            );
+          })}
+        </div>
+
+        <Icon
+          className="ml-3 text-slate-500 text-3xl cursor-pointer"
+          icon="akar-icons:sound-on"
+          onClick={() => speechSynthesisSingleton.speak(word)}
+          type="button"
+        />
       </div>
       <div className="text-slate-500 mt-6">{explain}</div>
     </div>
