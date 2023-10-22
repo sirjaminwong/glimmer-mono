@@ -1,31 +1,38 @@
 "use client";
 import { useMemo } from "react";
 
-function StatisticsBar(): JSX.Element {
+interface StatisticsBarProps {
+  time: number;
+  total: number;
+  wrong: number;
+  finished: number;
+}
+
+function StatisticsBar(props: StatisticsBarProps): JSX.Element {
   const items = useMemo(() => {
     return [
       {
         name: "时间",
-        value: 10,
+        value: props.time,
       },
       {
         name: "WPM",
-        value: 10,
+        value: (props.finished/(props.time/60)).toFixed(2),
       },
       {
         name: "输入数",
-        value: 10,
+        value: props.finished,
       },
       {
         name: "正确数",
-        value: 10,
+        value: props.finished - props.wrong,
       },
       {
         name: "正确率",
-        value: 10,
+        value: props.finished ===0 ? 0: (props.finished - props.wrong) / props.finished,
       },
     ];
-  }, []);
+  }, [props.finished, props.time, props.wrong]);
   return (
     <div className="flex text-gray-500 justify-between">
       {items.map((item) => {

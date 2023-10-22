@@ -8,17 +8,19 @@ import speechSynthesisSingleton from "src/utils/speck";
 
 const underscore = "_";
 
-interface WordCheckerProps {
+interface WordQuizProps {
   word: string;
   explain: string;
   onSuccess: () => void;
+  onError?: (word: string) => void;
 }
 
-function WordChecker({
+function WordQuiz({
   word,
   explain,
   onSuccess,
-}: WordCheckerProps): JSX.Element {
+  onError,
+}: WordQuizProps): JSX.Element {
   const [error, setError] = useState<{ index: number; char: string } | null>();
 
   const [isCtrlPress] = useKeyPress("Control");
@@ -50,13 +52,14 @@ function WordChecker({
         }
       } else {
         setError({ char: e.key, index: cursorIndex });
+        onError?.(word);
       }
     };
     window.addEventListener("keydown", handleKeydown);
     return () => {
       window.removeEventListener("keydown", handleKeydown);
     };
-  }, [word, cursorIndex]);
+  }, [word, cursorIndex, onError]);
 
   useEffect(() => {
     if (!error) {
@@ -123,16 +126,17 @@ function WordChecker({
             );
           })}
         </div>
-
+      </div>
+      <div className="text-slate-500 mt-6 flex items-center">
+        {explain}
         <Icon
-          className="ml-3 text-slate-500 text-3xl cursor-pointer"
+          className="ml-3 text-slate-500 cursor-pointer"
           icon="akar-icons:sound-on"
           onClick={() => speechSynthesisSingleton.speak(word)}
           type="button"
         />
       </div>
-      <div className="text-slate-500 mt-6">{explain}</div>
     </div>
   );
 }
-export default memo(WordChecker);
+export default memo(WordQuiz);
